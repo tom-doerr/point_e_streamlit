@@ -1,0 +1,14 @@
+services:
+  insect_detection:
+    build: .
+    ports:
+      - "2100:2100"
+
+    working_dir: /mounted
+    volumes:
+      - .:/mounted
+
+    command: streamlit run streamlit_app.py --server.port 2100
+    restart: on-failure
+
+
